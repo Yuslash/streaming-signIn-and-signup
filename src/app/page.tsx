@@ -1,6 +1,32 @@
+'use client'
+
+import { useState } from "react"
+
+interface email {
+  id: string
+  email: string
+}
 
 export default function Home() {
-  return <>
+
+  const [users, setUsers] = useState<email[]>([])
+  const [email, setEmail] = useState<string>('')
+
+  const addUsers = async () =>
+  {
+    await fetch('api/users',{
+      method: 'POST',
+      headers: {
+        'Content-type' : 'application/json'
+      },
+      body:JSON.stringify({email})
+    })
+
+    alert('Your Email has been added to Database')
+  }
+
+
+return <>
     <div className="main-body ">
       <div className="image-container">
         <img src="/spacship.jpg" alt="image" />
@@ -16,9 +42,11 @@ export default function Home() {
             className="enter-email text-cyan-400"
             placeholder="Sambar.design@gmail.com"
             type="email"
+            value={email}
+            onChange={(e)=> setEmail(e.target.value)}
 
           ></input>
-          <button className="email-button">CONTINUE</button>
+          <button onClick={addUsers} className="email-button">CONTINUE</button>
           <div className="outh-con flex flex-col h-full">
             <span className="red-roses text-white mt-6 text-xs">Or continue with open  acoount</span>
             <div className="out-buttons flex w-full ">
