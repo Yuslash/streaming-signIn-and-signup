@@ -26,7 +26,7 @@ This is a super-duper **Sign-Up App** where you can:
 
 ## 🌌 Sneak Peek 👀
 
-![App Screenshot](./MAIN%20FRAME%20(1).png)
+![App Screenshot](./screenshot.png)
 
 ---
 
